@@ -1,4 +1,5 @@
 #! /bin/sh
+#Invoked from menu.sh to pass terms to a search script
 echo Enter search terms
 read s
 web $s

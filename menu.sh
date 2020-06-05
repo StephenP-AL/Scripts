@@ -173,7 +173,7 @@ s_programs()
 		3)	tmux new-window 'ranger ~'
 			;;
 		4)	tmux select-pane -L
-			tmux split-window -v '~/scripts/spot.sh'
+			tmux split-window -v '~/scripts/spot.shr'
 			;;
 		*)	clear
 			;;

@@ -1,4 +1,5 @@
 #! /bin/sh
+#Opens C++ project (not recommended)
 ls ~/code
 echo " "
 echo "OPEN PROJECT"

@@ -1,4 +1,5 @@
 #! /bin/sh
+#Create a new redimentary C++ project; I don't use this anymore
 f_new()
 {
 	mkdir ~/code/$FILE

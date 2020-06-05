@@ -1,4 +1,5 @@
 #! /bin/sh
+#Display information about network, battery, memory, and disk space
 MWARN="90"
 
 ## todo move all output text to file in ~/.cache/

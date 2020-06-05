@@ -1,5 +1,5 @@
 #! /bin/sh
-
+# An attempt to create an IDE from TMUX and Vim. Main script
 # List existing projects
 EXIT=0
 while [ $EXIT == 0 ]; do
@@ -39,7 +39,7 @@ echo "tmux split-window -h" >> $FILE2
 echo "tmux split-window -v '~/scripts/codemenu.sh /home/stephen/code/$SEL'" >> $FILE2
 echo "tmux resize-pane -D 16" >> $FILE2
 echo "tmux resize-pane -R 35" >> $FILE2
-echo vim ~/code/"$SEL" >> ~/scripts/session2.sh
+echo cfiles ~/code/"$SEL" >> ~/scripts/session2.sh
 tmux new-session -s $SEL -d '~/scripts/session2.sh'
 
 # Creates file to attach to session
