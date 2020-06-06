@@ -4,7 +4,8 @@
 # Variables
 
 # Temporary file
-TEMPILE=~/.cache/codemenutemp.sh
+TEMPFILE=~/.cache/codemenutemp.sh
+
 
 # Git URL
 GITURL=https://github.com/StephenPate
@@ -21,14 +22,16 @@ s_git()
 	echo "4. Push    5. Setup"
 	read n
 	case $n in
-		1)	echo "#!/bin/bash" > $TEMPFILE
+		1)	echo 1 $TEMPFILE
+			read f
+			echo "#!/bin/bash" > $TEMPFILE
 			echo "git -C $DIR status | more" >> $TEMPFILE
 			echo "echo ENTER to continue" >> $TEMPFILE
 			echo "read n" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.sh
+			tmux split-pane -v '~/.cache/codemenutemp.sh'
 			;;
 		2)	echo "#!/bin/bash" > $TEMPFILE
 			echo "echo \"Enter commit comment\"" >> $TEMPFILE
@@ -41,7 +44,7 @@ s_git()
 			#echo $DIR
 			#read n
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.sh
+			tmux split-pane -v '~/.cache/codemenutemp.sh'
 		#	rm $TEMPFILE
 			;;
 		3)	echo "#!/bin/bash" > $TEMPFILE
@@ -51,7 +54,7 @@ s_git()
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.shmux select-pane -L
+			tmux split-pane -v '~/.cache/codemenutemp.sh'
 			;;
 		4)	echo "#!/bin/bash" > $TEMPFILE
 			echo "git -C $DIR push" >> $TEMPFILE
@@ -60,7 +63,7 @@ s_git()
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.shmux select-pane -Lclear
+			tmux split-pane -v '~/.cache/codemenutemp.sh'
 			;;
 		5)	s_gitsetup
 			;;
