@@ -107,19 +107,19 @@ s_coding()
 {
 	clear
 	echo "Menu - Coding"
-	echo "1. Open C++    2. New C++     3. Open Project"
-	echo ""
-	echo "4. Link Projects"
+	echo "1. Open Project 2. Link Project"
+	#echo ""
+	#echo "4. Link Projects"
 	read n
 	case $n in
-		1)	tmux new-window '~/scripts/opencpp.sh'
-			;;
-		2)	tmux new-window '~/scripts/newcpp.sh'
-			;;
-		3)	tmux select-pane -L
+		#1)	tmux new-window '~/scripts/opencpp.sh'
+		#	;;
+		#2)	tmux new-window '~/scripts/newcpp.sh'
+	#		;;
+		1)	tmux select-pane -L
 			tmux split-window -v '~/scripts/opencode.sh'
 			;;
-		4)	~/scripts/codelink
+		2)	~/scripts/codelink
 			;;
 		*)	clear
 			;;
