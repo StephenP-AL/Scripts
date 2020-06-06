@@ -6,10 +6,11 @@
 # Temporary file
 TEMPFILE=~/.cache/codemenutemp.sh
 
-
 # Git URL
 GITURL=https://github.com/StephenPate
 
+# Temporary files in single quotes
+TEMPQ=\'$TEMPFILE\'
 DIR=$1
 PROJ=$(basename $DIR)
 
@@ -22,48 +23,50 @@ s_git()
 	echo "4. Push    5. Setup"
 	read n
 	case $n in
-		1)	echo 1 $TEMPFILE
-			read f
-			echo "#!/bin/bash" > $TEMPFILE
-			echo "git -C $DIR status | more" >> $TEMPFILE
+		1)	echo "#!/bin/bash" > $TEMPFILE
+			echo "cd $DIR" >> $TEMPFILE
+			echo "git status | more" >> $TEMPFILE
 			echo "echo ENTER to continue" >> $TEMPFILE
 			echo "read n" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.sh'
+			tmux split-pane -v $TEMPQ
 			;;
 		2)	echo "#!/bin/bash" > $TEMPFILE
+			echo "cd $DIR" >> $TEMPFILE
 			echo "echo \"Enter commit comment\"" >> $TEMPFILE
 			echo "read COMMENT" >> $TEMPFILE
 			echo "echo ENTER to commit, CTRL+C to abort" >> $TEMPFILE
 			echo "read n" >> $TEMPFILE
-			echo "git -C $DIR commit -a -m \"$COMMENT\"" >> $TEMPFILE
+			echo "git commit -a -m \"\$COMMENT\"" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			#echo $DIR
 			#read n
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.sh'
+			tmux split-pane -v $TEMPQ
 		#	rm $TEMPFILE
 			;;
 		3)	echo "#!/bin/bash" > $TEMPFILE
-			echo "git -C $DIR pull" >> $TEMPFILE
+			echo "cd $DIR" >> $TEMPFILE
+			echo "git pull" >> $TEMPFILE
 			echo "echo ENTER to continue" >> $TEMPFILE
 			echo "read n" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.sh'
+			tmux split-pane -v $TEMPQ
 			;;
 		4)	echo "#!/bin/bash" > $TEMPFILE
-			echo "git -C $DIR push" >> $TEMPFILE
+			echo "cd $DIR" >> $TEMPFILE
+			echo "git push" >> $TEMPFILE
 			echo "echo ENTER to continue" >> $TEMPFILE
 			echo "read n" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			tmux select-pane -L
-			tmux split-pane -v '~/.cache/codemenutemp.sh'
+			tmux split-pane -v $TEMPQ
 			;;
 		5)	s_gitsetup
 			;;
@@ -99,7 +102,7 @@ s_gitsetup()
 #			echo "read n" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
-			tmux split-pane -v '~/.cache/codemenutemp.sh'
+			tmux split-pane -v $TEMPQ
 			;;
 		2)	echo "#!/bin/bash" >> $TEMPFILE
 			echo "echo \"Enter github project\"" >> $TEMPFILE
@@ -116,7 +119,7 @@ s_gitsetup()
 			echo "vim $DIR/.git/info/exclude" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
-			tmux split-pane -v '~/.cache/codemenutemp.sh'
+			tmux split-pane -v $TEMPQ
 			;;
 		*)	
 			;;
