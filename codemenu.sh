@@ -35,8 +35,12 @@ s_git()
 			;;
 		2)	echo "#!/bin/bash" > $TEMPFILE
 			echo "cd $DIR" >> $TEMPFILE
-			echo "echo \"Enter commit comment\"" >> $TEMPFILE
+			echo "while [ -z \"\$COMMENT\" ]" >> $TEMPFILE
+			echo "do" >> $TEMPFILE
+			echo "clear" >> $TEMPFILE
+			echo "echo \"Enter commit comment (required)\"" >> $TEMPFILE
 			echo "read COMMENT" >> $TEMPFILE
+			echo "done" >> $TEMPFILE
 			echo "echo ENTER to commit, CTRL+C to abort" >> $TEMPFILE
 			echo "read n" >> $TEMPFILE
 			echo "git commit -a -m \"\$COMMENT\"" >> $TEMPFILE
