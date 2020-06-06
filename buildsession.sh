@@ -9,11 +9,24 @@ FM=ranger
 # Default tmux session
 DT=~/bin/go
 
+# Location of codemenu.sh
+CM=~/scripts/codemenu.sh
+
+# Path to project directories
+CODE=/home/stephen/code
+
 # IDE session
 FILE1=~/scripts/session.sh
 
 # Return session; when invoked the variable doesn't work
 FILE2=~/scripts/session2.sh
+
+# FILE2 in quotes
+FILE2Q=\'$FILE2\'
+
+# Codemenu command for tmux
+CM1="$CM $CODE/$1"
+CMQ=\'$CM1\'
 
 # Creates script that creates the new session
 touch $FILE2
@@ -21,13 +34,13 @@ chmod +x $FILE2
 echo "#!/bin/bash" > $FILE2
 echo "cd ~/code/$1" >> $FILE2
 echo "tmux split-window -h" >> $FILE2
-echo "tmux split-window -v '~/scripts/codemenu.sh /home/stephen/code/$1'" >> $FILE2
+echo "tmux split-window -v $CMQ" >> $FILE2
 echo "tmux resize-pane -D 16" >> $FILE2
 echo "tmux resize-pane -R 35" >> $FILE2
 echo "$FM ~/code/$1" >> $FILE2
 
 # Manually set this script to the same as $FILE2; variables don't work here
-tmux new-session -s $1 -d '~/scripts/session2.sh'
+tmux new-session -s $1 -d $FILE2Q
 
 touch $FILE1
 chmod +x $FILE1
