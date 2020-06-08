@@ -18,9 +18,10 @@ CODE=/home/stephen/code
 # IDE session
 FILE1=~/scripts/session.sh
 
-# Return session; when invoked the variable doesn't work
+# Return session
 FILE2=~/scripts/session2.sh
 
+# Derived variables, don't change
 # FILE2 in quotes
 FILE2Q=\'$FILE2\'
 
@@ -39,7 +40,6 @@ echo "tmux resize-pane -D 16" >> $FILE2
 echo "tmux resize-pane -R 35" >> $FILE2
 echo "$FM ~/code/$1" >> $FILE2
 
-# Manually set this script to the same as $FILE2; variables don't work here
 tmux new-session -s $1 -d $FILE2Q
 
 touch $FILE1
