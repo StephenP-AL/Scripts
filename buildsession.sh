@@ -4,7 +4,8 @@
 # Variables
 
 #File Manager 
-FM=ranger
+#FM=ranger
+FM=cfiles
 
 # Default tmux session
 DT=~/bin/go
@@ -38,15 +39,16 @@ echo "tmux split-window -h" >> $FILE2
 echo "tmux split-window -v $CMQ" >> $FILE2
 echo "tmux resize-pane -D 16" >> $FILE2
 echo "tmux resize-pane -R 35" >> $FILE2
-echo "$FM ~/code/$1" >> $FILE2
+echo "sleep 0.5" >> $FILE2 #prevents errors while openeing cfiles, not needed for ranger
+echo "$FM" >> $FILE2
 
 tmux new-session -s $1 -d $FILE2Q
 
 touch $FILE1
-chmod +x $FILE1
 echo "#!/bin/bash" > $FILE1
 echo "tmux a -t $1" >> $FILE1
 echo "rm $FILE1" >> $FILE1
 echo "~/bin/go" >> $FILE1
+chmod +x $FILE1
 
 tmux detach
