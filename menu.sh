@@ -29,7 +29,7 @@ s_system()
 			;;
 		5)	tmux new-window 'htop'
 			;;
-		6)	~/scripts/multimonitor.sh
+		6)	s_monitors
 			;;
 #		6)	tmux new-window 			
 #			tmux split-window -v '~/scripts/wifilist.sh'
@@ -44,6 +44,25 @@ s_system()
 		*)	clear
 			;;
 	esac
+}
+
+s_monitors()
+{
+	clear
+	echo "Menu - Monitors"
+	echo "1. Lap         2. Docked      3. Multi-Monitor"
+	read n
+	case $n in
+		1)	~/scripts/singlemonitor.sh
+			;;
+		2)	~/scripts/docked.sh
+			;;
+		3)	~/scripts/multimonitor.sh
+			;;
+		*)
+			;;
+	esac
+	
 }
 
 s_games()
