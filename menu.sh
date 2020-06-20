@@ -7,7 +7,7 @@ s_system()
 	echo "Menu - System"
 	echo "1. Update      2. Backup      3. Shutdown"
 	echo ""
-	echo "4. ALSA Mixer  5. HTOP        6. Multi-monitor"
+	echo "4. ALSA Mixer  5. HTOP        6. Monitors"
 	echo ""
 	echo "7. Switch GUI  8. Switch CLI"
 	
@@ -126,7 +126,7 @@ s_coding()
 {
 	clear
 	echo "Menu - Coding"
-	echo "1. Open Project 2. Link Project"
+	echo "1. Open        2. Link Project"
 	#echo ""
 	#echo "4. Link Projects"
 	read n
