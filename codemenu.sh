@@ -14,6 +14,13 @@ TEMPQ=\'$TEMPFILE\'
 DIR=$1
 PROJ=$(basename $DIR)
 
+s_build()
+{
+	clear
+	echo "Menu - Build"
+	echo ""
+	echo "1. Make    "
+}
 s_git()
 {
 	clear
@@ -46,11 +53,8 @@ s_git()
 			echo "git commit -a -m \"\$COMMENT\"" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
-			#echo $DIR
-			#read n
 			tmux select-pane -L
 			tmux split-pane -v $TEMPQ
-		#	rm $TEMPFILE
 			;;
 		3)	echo "#!/bin/bash" > $TEMPFILE
 			echo "cd $DIR" >> $TEMPFILE
@@ -135,13 +139,21 @@ while true; do
 
 	echo "Menu"
 	echo ""
-	echo "1. Git  "
+	echo "1. Git     2. Make"
 	echo "4. Exit"
 	#user input
 	read n
 
 	case $n in
 		1)	s_git
+			;;
+		2)	tmux select-pane -L
+			echo "#!/bin/bash" > $TEMPFILE
+			echo "cd $DIR" > $TEMPFILE
+			echo "make" > $TEMPFILE
+			echo "read n" > $TEMPFILE
+			chomod +x $TEMPFILE
+			tmux split-pane -v $TEMPQ
 			;;
 		4)	echo "Confirm exit? (y)"
 			read confirm

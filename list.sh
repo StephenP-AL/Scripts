@@ -5,7 +5,6 @@ SC=~/.cache/list_tmp.sh
 rm $SC
 touch $SC
 echo #!/bin/bash >> $SC
-echo echo Projects 
 for PROJ in ~/code/* 
  
 do

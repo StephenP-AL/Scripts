@@ -163,7 +163,7 @@ s_tmux()
 			;;
 		3)	tmux kill-session -t Default
 			;;
-		4)	tmux ls 
+		4)	tmux ls; read f
 			;;
 		5)	break
 			;;
