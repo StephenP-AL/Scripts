@@ -153,7 +153,7 @@ s_tmux()
 	echo "Menu - Tmux"
 	echo "1. New Window  2. Detach      3. End Tmux"
 	echo ""
-	echo "4. List        5. Exit menu"
+	echo "4. Sessions    5. Exit menu"
 
 	read n
 	case $n in
@@ -163,7 +163,7 @@ s_tmux()
 			;;
 		3)	tmux kill-session -t Default
 			;;
-		4)	tmux ls; read f
+		4)	rtmux;
 			;;
 		5)	break
 			;;
