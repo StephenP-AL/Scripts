@@ -32,6 +32,7 @@ s_git()
 	case $n in
 		1)	echo "#!/bin/bash" > $TEMPFILE
 			echo "cd $DIR" >> $TEMPFILE
+			echo "git config --list | awk '/user|remote|branch/'" >> $TEMPFILE
 			echo "git status | more" >> $TEMPFILE
 			echo "echo ENTER to continue" >> $TEMPFILE
 			echo "read n" >> $TEMPFILE
