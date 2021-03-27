@@ -31,8 +31,8 @@ while true; do
 		BAT="0"
 
 	fi
-	MEMT="$(free m | grep Mem | cut -c 13-19)"
-	MEMU="$(free m | grep Mem | cut -c 25-32)"	
+	MEMT="$(free -m | grep Mem | cut -c 16-20)"
+	MEMU="$(free -m | grep Mem | cut -c 28-32)"	
 	MEMP="$((($MEMU*100)/$MEMT))" 
 	clear
 	ESSID="$(iwconfig | grep ESSID: | cut -c 30-60)" > /dev/null
@@ -46,6 +46,7 @@ while true; do
 	
 	echo WiFi $ESSID
 	echo $SIG 
+	echo $MEMT $MEMU
 	echo Batt: $BATS - Mem: $MEMP% used
 	echo Disk available: / $DISKR - /home $DISKH
 
