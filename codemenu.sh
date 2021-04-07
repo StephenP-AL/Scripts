@@ -7,7 +7,7 @@
 TEMPFILE=~/.cache/codemenutemp.sh
 
 # Git URL
-GITURL=https://github.com/StephenPate
+GITURL=https://github.com/DaddyWarcrimes
 
 # Temporary files in single quotes
 TEMPQ=\'$TEMPFILE\'
@@ -140,7 +140,7 @@ while true; do
 
 	echo "Menu"
 	echo ""
-	echo "1. Git     2. Make"
+	echo "1. Git     2. Make   3. Tmux"
 	echo "4. Exit"
 	#user input
 	read n
@@ -155,6 +155,8 @@ while true; do
 			echo "read n" > $TEMPFILE
 			chomod +x $TEMPFILE
 			tmux split-pane -v $TEMPQ
+			;;
+		3)	rtmux
 			;;
 		4)	echo "Confirm exit? (y)"
 			read confirm
