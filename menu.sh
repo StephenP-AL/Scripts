@@ -108,6 +108,7 @@ s_ssh()
 	clear
 	echo "Menu - SSH"
 	echo "1. Retropie      2. VPN       3. Netbook"
+	echo " "
 	echo "4. Website"
 	read n
 	case $n in
@@ -118,6 +119,7 @@ s_ssh()
 		3)	tmux new-window 'ssh eriktheblu@netbook'
 			;;
 		4)	tmux new-window '~/scripts/websitessh.sh'
+			;;
 		*)	clear
 			;;
 	esac
