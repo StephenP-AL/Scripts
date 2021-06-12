@@ -183,7 +183,7 @@ s_programs()
 	echo "Menu - Programs"
 	echo "1. MOC         2. Spreadsheet 3. Ranger"
 	echo ""
-	echo "4. Sconsify"
+	echo "4. Sconsify    5. Monero"
 
 
 	read n
@@ -197,6 +197,8 @@ s_programs()
 			;;
 		4)	tmux select-pane -L
 			tmux split-window -v '~/scripts/spot.shr'
+			;;
+		5)	~/scripts/monero.sh
 			;;
 		*)	clear
 			;;
