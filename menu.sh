@@ -20,6 +20,7 @@ s_system()
 			tmux split-window -v '~/scripts/backup.sh'
 			;;
 		3)	sudo umount /mnt/etb
+			monerod exit
 			sudo umount /mnt/share	
 			sudo killall openvpn
 			sudo shutdown now && exit

@@ -46,7 +46,7 @@ while true; do
 	
 	echo WiFi $ESSID
 	echo $SIG 
-	echo $MEMT $MEMU
+#	echo $MEMT $MEMU
 	echo Batt: $BATS - Mem: $MEMP% used
 	echo Disk available: / $DISKR - /home $DISKH
 
