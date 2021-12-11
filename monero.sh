@@ -12,7 +12,7 @@ then
 else	
 	echo "Attempting to mount blockchain disk"
 	sudo mount UUID=2fe4d760-dd00-428c-9111-8d8e88925a32 /mnt/crypto
-	if [ $? -eq 0]
+	if [ $? -eq 0 ]
 	then 
 		echo "Mounted"
 	else
