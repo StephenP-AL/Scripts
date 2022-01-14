@@ -39,16 +39,23 @@ while true; do
 	clear
 	SIG="$(iwconfig | grep Quality | cut -c 24-80)" > /dev/null
 	clear
-	DISKR="$(df -h | grep sda6 | cut -c 29-34)" > /dev/null
+	DISKM="$(df -h | grep home | cut -c 6-8)" > /dev/null #/ and /home are on the same drive; this identifies the designation under /dev/sda 
+	DISKR="$(echo $DISKM)6" > /dev/null #have to use this because I can't df -h | grep /
+
 	clear
-	DISKH="$(df -h | grep sda5 | cut -c 29-34)" > /dev/null
+	DISKR="$(df -h | grep $DISKR | cut -c 29-32)" > /dev/null
 	clear
+	DISKH="$(df -h | grep home | cut -c 29-32)" > /dev/null
+	clear
+	DISKD="$(df -h | grep dock | cut -c 29-32)" > /dev/null
+	clear
+
 	
 	echo WiFi $ESSID
 	echo $SIG 
 #	echo $MEMT $MEMU
 	echo Batt: $BATS - Mem: $MEMP% used
-	echo Disk available: / $DISKR - /home $DISKH
+	echo "Disk available: / $DISKR | home $DISKH | dock $DISKD"
 
 	if [ "$BAT" -lt "$BWARN" ] > /dev/null
 	then 
