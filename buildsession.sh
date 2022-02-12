@@ -5,7 +5,8 @@
 
 #File Manager 
 #FM=ranger
-FM=cfiles
+#FM=cfiles
+FM=vifm
 
 # Default tmux session
 DT=~/bin/go
