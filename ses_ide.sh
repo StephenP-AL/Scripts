@@ -5,6 +5,6 @@ tmux new-session -s $1 -d
 echo "#!/bin/bash" > $FILE
 echo "tmux a -t $1" >> $FILE
 echo "echo '#!/bin/bash' > $FILE" >> $FILE
-echo "~/bin/go" >> $FILE
+echo "~/bin/begin" >> $FILE
 tmux detach
 

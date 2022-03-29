@@ -9,7 +9,7 @@
 FM=vifm
 
 # Default tmux session
-DT=~/bin/go
+DT=~/bin/begin
 
 # Location of codemenu.sh
 CM=~/scripts/codemenu.sh
@@ -41,7 +41,13 @@ echo "tmux split-window -v $CMQ" >> $FILE2
 echo "tmux resize-pane -D 16" >> $FILE2
 echo "tmux resize-pane -R 35" >> $FILE2
 echo "sleep 0.5" >> $FILE2 #prevents errors while openeing cfiles, not needed for ranger
-echo "$FM" >> $FILE2
+echo "if [ -e ~/code/$1/quicksave.vim ]" >> $FILE2
+echo "then" >> $FILE2 
+echo "vim -S ~/code/$1/quicksave.vim; $FM ~/code/$1" >> $FILE2
+echo "else" >> $FILE2
+echo "$FM ~/code/$1" >> $FILE2
+echo "fi" >> $FILE2
+
 
 tmux new-session -s $1 -d $FILE2Q
 
