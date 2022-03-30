@@ -1,13 +1,13 @@
 #!/bin/bash
-cd ~/code/DOCO2
+cd ~/code/scripts
 tmux split-window -h
-tmux split-window -v '/home/stephen/scripts/codemenu.sh /home/stephen/code/DOCO2'
+tmux split-window -v '/home/stephen/scripts/codemenu.sh /home/stephen/code/scripts'
 tmux resize-pane -D 16
 tmux resize-pane -R 35
 sleep 0.5
-if [ -e ~/code/DOCO2/quicksave.vim ]
+if [ -e ~/code/scripts/quicksave.vim ]
 then
-vim -S ~/code/DOCO2/quicksave.vim; vifm ~/code/DOCO2
+vim -S ~/code/scripts/quicksave.vim; vifm ~/code/scripts
 else
-vifm ~/code/DOCO2
+vifm ~/code/scripts
 fi
