@@ -9,7 +9,7 @@
 FM=vifm
 
 # Default tmux session
-DT=~/bin/begin
+DT=~/bin/start
 
 # Location of codemenu.sh
 CM=~/scripts/codemenu.sh
