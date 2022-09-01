@@ -55,7 +55,7 @@ touch $FILE1
 echo "#!/bin/bash" > $FILE1
 echo "tmux a -t $1" >> $FILE1
 echo "rm $FILE1" >> $FILE1
-echo "~/bin/begin" >> $FILE1
+echo "~/bin/start" >> $FILE1
 chmod +x $FILE1
 
 tmux detach

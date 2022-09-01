@@ -2,6 +2,10 @@
 #Display information about network, battery, memory, and disk space
 MWARN="90"
 
+# BWARN is the battery percentage below which will trigger a warning
+# BAT is the current percentage on the battery
+# BATS is the battery charging status and level
+
 ## todo move all output text to file in ~/.cache/
 
 while true; do
@@ -25,7 +29,12 @@ while true; do
 		BWARN="15"
 		BATS="$(acpi -V | grep "0: Unknown" | cut -c 12-23)" > /dev/null
 		BAT="$(acpi -V | grep "0: Unknown" | cut -c 21-22)" > /dev/null
-	else
+	elif acpi -V | grep "0: Not charging"
+	then
+		BWARN="15"
+		BATS="$(acpi -V | grep "0: Not charging" | cut -d ':' -f 2)" > /dev/null
+		BAT="$(acpi -V | grep "0: Not charging" | cut -d ' ' -f 5 | cut -d '%' -f 1)" > /dev/null
+	else 
 		BWARN="1"
 		BATS="UNKNOWN"
 		BAT="0"
@@ -54,7 +63,7 @@ while true; do
 	echo WiFi $ESSID
 	echo $SIG 
 #	echo $MEMT $MEMU
-	echo Batt: $BATS - Mem: $MEMP% used
+	echo Batt: $BATS - Mem: $MEMP% used 
 	echo "Disk available: / $DISKR | home $DISKH | dock $DISKD"
 
 	if [ "$BAT" -lt "$BWARN" ] > /dev/null
