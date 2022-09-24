@@ -23,6 +23,7 @@ s_system()
 			monerod exit
 			sudo umount /mnt/share	
 			sudo killall openvpn
+			sudo killall brave
 			sudo shutdown now && exit
 			;;
 		4)	tmux select-pane -L
