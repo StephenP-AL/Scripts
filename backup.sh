@@ -23,7 +23,8 @@ tar --exclude='/home/stephen/.thumbnails' --exclude='/home/stephen/.local' --exc
 
 # Move archive from local disk to server, delete any duplicates from local disk, update logs
 echo "----------Moving archive to server----------"
-cp /mnt/dock/backup/backup_$now.tar.gz /mnt/etb/x220/backup/backup_$now.tar.gz
+#cp /mnt/dock/backup/backup_$now.tar.gz /mnt/etb/x220/backup/backup_$now.tar.gz
+cp /mnt/dock/backup/*.tar.gz ~/net/backup/
 echo "----------Removing local copies----------"
 for file in $(ls ~/net/backup); do
 	if test -f /mnt/dock/backup/$file; then
