@@ -50,3 +50,7 @@ then
 		rm ~/net/backup/$file
 	done
 fi
+echo "----------Files on Server----------"
+ls ~/net/backup/
+echo "Press ENTER to continue"
+read n
