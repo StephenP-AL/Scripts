@@ -34,8 +34,8 @@ s_git()
 			echo "cd $DIR" >> $TEMPFILE
 			echo "git config --list | awk '/user|remote|branch/'" >> $TEMPFILE
 			echo "git status | more" >> $TEMPFILE
-			echo "echo ENTER to continue" >> $TEMPFILE
-			echo "read n" >> $TEMPFILE
+#			echo "echo ENTER to continue" >> $TEMPFILE
+#			echo "read n" >> $TEMPFILE
 			echo "tmux select-pane -R" >> $TEMPFILE
 			chmod +x $TEMPFILE
 			tmux select-pane -L
