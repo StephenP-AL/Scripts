@@ -4,4 +4,4 @@ tmux split-window -h
 tmux split-window -v '/home/stephen/scripts/codemenu.sh /home/stephen/code/scripts'
 tmux resize-pane -D 16
 tmux resize-pane -R 35
-vimoire ~/code/scripts; vifm ~/code/scripts
+~/bin/vimoire ~/code/scripts; vifm ~/code/scripts

@@ -47,7 +47,8 @@ echo "tmux resize-pane -R 35" >> $FILE2
 #echo "else" >> $FILE2
 #echo "$FM ~/code/$1" >> $FILE2
 #echo "fi" >> $FILE2
-echo "vimoire ~/code/$1; $FM ~/code/$1" >> $FILE2
+
+echo "~/bin/vimoire ~/code/$1; $FM ~/code/$1" >> $FILE2
 
 tmux new-session -s $1 -d $FILE2Q
 
